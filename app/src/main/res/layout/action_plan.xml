@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/action_header"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/background">
+
+        <TextView
+            android:id="@+id/save_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Smart Audio Video Education"
+            android:textSize="38dp"
+            android:textStyle="bold"
+            android:textColor="@color/list_background_pressed"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Learn at your own pace. Any time, Any place..."
+            android:textColor="#fff"
+            android:layout_below="@id/save_a"
+            android:layout_centerHorizontal="true"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/action_header">
+
+        <TextView
+            android:id="@+id/abt_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Action Plan"
+            android:textSize="36dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/about_txt"
+            android:layout_below="@id/abt_us"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:background="@drawable/action"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

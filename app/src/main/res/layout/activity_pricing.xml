@@ -1,0 +1,146 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/drawable_rectangle_sharp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textPackageOneSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/marginLayoutPricing"
+                    android:text="@string/packageOneSub"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/textPackageOnePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/marginLayoutPricing"
+                    android:text="@string/packageOnePrice"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonBuyPackage_1"
+                android:layout_width="@dimen/widthEditTextLoginScreen"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/marginTopFieldLoginScreen"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/buy"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sizeTextLoginScreen" />
+        </LinearLayout>
+
+        <!--Package 2-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/drawable_rectangle_sharp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textPackageTwoSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/marginLayoutPricing"
+                    android:text="@string/packageTwoSub"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/textPackageTwoPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/marginLayoutPricing"
+                    android:text="@string/packageTwoPrice"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonBuyPackage_2"
+                android:layout_width="@dimen/widthEditTextLoginScreen"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/marginTopFieldLoginScreen"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/buy"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sizeTextLoginScreen" />
+        </LinearLayout>
+
+        <!--Package 3-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/drawable_rectangle_sharp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textPackageThreeSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/marginLayoutPricing"
+                    android:text="@string/packageThreeSub"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/textPackageThreePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/marginLayoutPricing"
+                    android:text="@string/packageThreePrice"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonBuyPackage_3"
+                android:layout_width="@dimen/widthEditTextLoginScreen"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/marginTopFieldLoginScreen"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/buy"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sizeTextLoginScreen" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</ScrollView>

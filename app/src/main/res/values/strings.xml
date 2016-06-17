@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Magnus Edutech</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+    <string name="loading_video">Loading ...</string>
+    <string name="aboutUSHeader">About Us</string>
+    <string name="about_us">When Lord Buddha was undergoing “Mahaparinirvana”
+        in the shadow of a Saal tree at Kusinagar on a full moon day, his disciple Anand was weeping over Buddha’s departure and told him thus, “ Dear Lord! You are leaving me in the midst, and I haven’t become enlightened (Arihant) yet, what will happen to me?
+        The world will be absolutely dark for me. You were the light.... Have compassion on us”\n
+        Buddha opened his eyes, gave the last dictum, “ Ap Deepo Bhava”, meaning,
+        “Be your own guiding light Anand. Nobody can be the light for you”.\n
+        The Genesis of “Magnus Edutech” has its emotional bondage with the Buddhist
+        dictum on Ethics “Ap Deepo Bhava”- Be your own guiding Light.
+        The pedagogy of “Teach Yourself through SAVE (Smart Audio Video Education)” is an innovative and
+        a well tested methodology of Magnus Edutech, developed by a senior civil
+        servant with more than two decades of work experience.\n
+        These days, we see a huge crowd of Civil Services’ Aspirants rushing to Delhi in quest of the
+        right knowledge and guidance. Quite a few get distracted in the vagaries of the city life,
+        intimidated by a plethora of unnecessary guidance, and thus loosing their focus and missing their target.
+        The failures bring to them a sense of frustration.\n
+        Moved by the plight of the young bright minds, we at Magnus Edutech,
+        have devised an innovatively improvised take on the methodology of teaching through
+        “Smart Audio Video Education” complemented with written concise key notes depicting
+        key concepts and key words. This approach has delivered remarkable results as experienced
+        from full-fledged trials with several students. In fact, with this methodology, the students
+        find themselves more equipped than any other method to face the challenges in the Civil Services
+        examination. Before bringing this concept to you, much research work has been done on the pedagogy,
+        content of lectures, standard of keynotes and other aspects. The most important aspect, which has been
+        the central theme of the Audio- video classes, is that the students must find themselves
+        equipped to present their viewpoints in a more analytical manner within the limited time-span of
+        the examination. Based on an extensive research, we have come to observe, that “What not to be studied?”,
+        “ How can a student maximize his marks by spending minimum amount of time?”Since the class has
+        been developed by a seasoned civil servant with more than 20 years of work experience and teaching,
+        much hard work has been made to maintain the quality of the lectures vis-a-vis the aspirations of the
+        budding civil servant. With this methodology, students will have the ease to learn at their own pace.
+        They will be in position to revise the course within a short span of time, and can analyze their improvements
+        at regular intervals in a more scientific manner.
+        Moreover, they will not be constrained to experience the dehumanized environment of classroom teaching.\n
+        To provide you with a snag-free technical support, we have a well-experienced team of young IITians,
+        thus ensuring your learning process continues without any hassles and you become your own light !
+    </string>
+
+    <string name="contact_us">
+    Magnus Edutech
+    \nBakhtawar Singh Block,\nAsian Game Village,\nDelhi - 110049\nPhone : +91-9643984795, +91 9953644108
+    \nE-mail : magnusedutech@gmail.com\nWebsite : magnusedutech.org\n
+    </string>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>Home</item>
+        <item>Resources</item>
+        <item>About Us</item>
+        <item>Contact US</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/menu_home_active</item>
+        <item>@drawable/menu_resource_active</item>
+        <item>@drawable/menu_about_us_active</item>
+        <item>@drawable/menu_contact_us_active</item>
+        <item>@drawable/ic_home_active</item>
+        <item>@drawable/ic_home_active</item>
+    </array>
+
+    <!--Home Icon -->
+    <array 	  name="course_icon">
+        <item>@drawable/icon_1</item>
+        <item>@drawable/icon_2</item>
+        <item>@drawable/icon_3</item>
+        <item>@drawable/icon_4</item>
+        <item>@drawable/icon_5</item>
+        <item>@drawable/icon_6</item>
+        <item>@drawable/icon_7</item>
+    </array>
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+    <string name="title_activity_contact_us">ContactUs</string>
+    <string name="exitMessage">Press enter again to exit.</string>
+
+    <!--  Addition by jugal  -->
+
+    <string name="emailAddress">Email</string>
+    <string name="forgetPassword"><u>Forget Password</u></string>
+    <string name="password">Password</string>
+    <string name="SignIn">Sign In</string>
+    <string name="messageSignUp">Not a member? Sign Up Now</string>
+    <string name="signUp">Sign Up</string>
+    <string name="loginOptions">Login Using</string>
+    <!--Registration fields -->
+    <string name="userName">Full Name</string>
+    <string name="userMobileNumber">Mobile No</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <!--Error Msg registration-->
+    <string name="err_msg_name">Enter your full name</string>
+    <string name="err_msg_email">Enter valid email address</string>
+    <string name="err_msg_phone">Enter valid phone number</string>
+    <string name="err_msg_password">Password should contain at least 6 characters.</string>
+    <string name="err_msg_confirm_password">Enter the confirm password</string>
+    <string name="err_msg_confirmation">Password and confirm password does not match</string>
+    <!-- Home fragment : -->
+    <string name="NoCourseFoundHF">No result found! for </string>
+
+    <!--Resource fragment-->
+    <string name="comingSoon">Coming soon ...</string>
+
+    <!--Server -->
+    <string name="err_server_header">Server error!</string>
+    <string name="err_server_body">Server is not responding</string>
+        <!--server Login error-->
+    <string name="err_login_header">Login error!</string>
+        <!--server Login error-->
+    <string name="err_registration_header">Registration error!</string>
+    <!--Forget Password-->
+    <string name="forget_password_prompt_header">Forget password </string>
+    <string name="err_forget_password">Either the email is not valid or server is not responding </string>
+    <string name="success_forget_password">Password has sent to the entered email. </string>
+
+
+    <!--Alert Button-->
+    <string name="alert_ok">Ok</string>
+    <string name="alert_cancel">Cancel</string>
+    <string name="alert_submit">Submit</string>
+
+    <!--Activity pricing String-->
+    <string name="packageOneSub">Subscribe for 6 months</string>
+    <string name="packageTwoSub">Subscribe for 12 months</string>
+    <string name="packageThreeSub">Subscribe for 18 months</string>
+
+    <string name="packageOnePrice">Price : 7500/-</string>
+    <string name="packageTwoPrice">Price : 12500/-</string>
+    <string name="packageThreePrice">Price : 17000/-</string>
+
+    <string name="buy">Buy</string>
+
+
+
+
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlCategoryItem"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/heightItemChapter"
+    android:orientation="horizontal"
+    android:weightSum="10"
+    android:padding="@dimen/leftPaddingItemChapter"
+    android:layout_margin="@dimen/leftPaddingItemChapter"
+    android:background="@drawable/drawable_rectangle_sharp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:weightSum="6">
+
+        <TextView
+            android:id="@+id/categoryName"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:lines="2"
+            android:text="Chapter -1 "
+            android:textSize="@dimen/sizeItemChapterTitle"
+            android:textColor="@color/colorChapterTitle"
+            android:layout_weight="4" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            
+            >
+            <TextView
+                android:id="@+id/noOfVideoInsideThisCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="23"
+                android:textColor="@color/colorChapterSubtext"
+                android:textSize="@dimen/sizeItemChapterSubText"
+          />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/noOfVideoInsideThisCategory"
+                android:text="Videos"
+                android:textColor="@color/colorChapterSubtext" 
+                android:textSize="@dimen/sizeItemChapterSubText"
+                android:layout_marginLeft="5dp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--<LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:layout_height="@dimen/heightIconItemNext"
+            android:layout_width="wrap_content"
+            android:background="@drawable/icon_forward" />
+    </LinearLayout>-->
+
+</LinearLayout>

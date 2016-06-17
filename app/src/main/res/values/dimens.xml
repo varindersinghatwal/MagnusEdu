@@ -1,0 +1,63 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    
+    <!-- Addition by jugal  -->
+    
+    <dimen name="widthAppIconloginScreen">100dp</dimen>
+    <dimen name="heightAppIconloginScreen">100dp</dimen>
+    <dimen name="topMarginforItemsLoginScreen">10dp</dimen>
+    
+   <!-- edit text image icon  -->
+   <dimen name="widthIconETLoginScreen">60dp</dimen>
+   
+    <dimen name="heightllEDTextLoginScreen">60dp</dimen>
+    <dimen name="heightfacebookIconLoginScreen">50dp</dimen>
+    <dimen name="sizeTextLoginScreen">15sp</dimen>
+    <dimen name="widthEditTextLoginScreen">260dp</dimen>
+    <dimen name="marginTopFieldLoginScreen">12dp</dimen>
+    <dimen name="marginTopButtonLoginScreen">20dp</dimen>
+    <dimen name="marginTopFieldRegistrationScreen">10dp</dimen>
+    
+    <!-- Navigation drawer Activity  -->
+    <dimen name="widthLayoutNavigationDrawer">280dp</dimen>
+    <dimen name="heightLayoutNDListItem">60dp</dimen>
+    <dimen name="widthNDListItemImage">25dp</dimen>
+    <dimen name="leftMarginNDListItemIcon">16dp</dimen>
+     <dimen name="leftMarginNDListItemTitle">72dp</dimen>
+     
+     
+     <!--  Frage Home Course : -->
+     <dimen name="widthSearchLayoutCourseFH">50dp</dimen>
+     <dimen name="marginLayoutCourseFH">15dp</dimen>
+    <dimen name="widthItemCourseGridViewFH">170dp</dimen>
+     <dimen name="heightItemCourseGridViewFH">145dp</dimen>
+     <dimen name="sizeTitleCourseGridViewFH">15sp</dimen>
+     <dimen name="widthItemIconCourseGridViewFH">50dp</dimen>
+     <dimen name="paddingItemCourseGridViewFH">8dp</dimen>
+     <dimen name="marginItemCourseGridViewFH">8dp</dimen>
+     
+     
+     <!-- Fragment Chapter  -->
+     <dimen name="heightItemChapter">80dp</dimen>
+     <dimen name="sizeItemChapterTitle">17sp</dimen>
+     <dimen name="sizeItemChapterSubText">12sp</dimen>
+      <dimen name="leftPaddingItemChapter">4dp</dimen>
+      <dimen name="RightPaddingItemChapter">5dp</dimen>
+      <dimen name="TopPaddingItemChapter">5dp</dimen>
+      <dimen name="BottomPaddingItemChapter">15dp</dimen>
+      
+      <dimen name="heightIconItemNext">40dp</dimen>
+
+    <!-- Fragment Videos  -->
+    <dimen name="heightItemVideos">100dp</dimen>
+    <!--Fragment About US-->
+     <dimen name="sizeHeaderAboutUS">22sp</dimen>
+    <dimen name="sizeBodyAboutUS">16sp</dimen>
+
+    <!-- Activity Pricing -->
+    <dimen name="marginLayoutPricing">5dp</dimen>
+</resources>

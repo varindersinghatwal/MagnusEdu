@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llAdapterVideosItem"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/heightItemVideos"
+    android:padding="@dimen/leftPaddingItemChapter"
+    android:layout_margin="@dimen/leftPaddingItemChapter"
+    android:orientation="horizontal"
+    android:background="@drawable/drawable_rectangle_sharp"
+    android:weightSum="7" >
+
+    <RelativeLayout
+        android:id="@+id/videosThumbNail"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:background="@drawable/volcano" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageViewVideoPlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:src="@drawable/videoy" />
+
+            <ImageView
+                android:id="@+id/imageViewLock"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:weightSum="3" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:gravity="left" >
+            
+            <TextView
+                android:id="@+id/VideoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="video"
+                android:lines="2"
+                android:ellipsize="end"
+                android:textColor="@color/colorChapterTitle"
+                android:textSize="@dimen/sizeItemChapterTitle"
+                 />
+            
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="4dp" >
+
+            <TextView
+                
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="20 min"
+                android:textColor="@color/colorChapterSubtext"
+                android:textSize="@dimen/sizeItemChapterSubText"
+                 />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

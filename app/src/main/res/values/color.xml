@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="list_item_title">#fff</color>
+    <color name="list_background">#0f4853</color>
+    <color name="list_background_pressed">#f9a61a</color>
+    <color name="list_divider">#0d5b72</color>
+    <color name="counter_text_bg">#626262</color>
+    <color name="counter_text_color">#c5c4c4</color>
+    <color name="text_color">#5f9ac2</color>
+    <color name="body_background">#1b5d6b</color>
+    <color name="colorDarkBodyBackground">#0f4853</color>
+     <color name="colorEditTextEmail">#34828f</color>
+   <!--Colors for theam -->
+    <!-- Header image color  -->
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#0D47A1</color>
+    <color name="colorAccent">#8a8a8a</color>
+
+    <!-- Color Border rect for Topics -->
+    <color name="colorBorderRect">#B0BEC5</color>
+
+    <color name="header">#8a8a8a</color>
+    <color name="khaki">#b0941a</color>
+    <color name="cynana">#10c4b6</color>
+    <color name="parroto">#5ed40b</color>
+    <color name="greeno">#11d170</color>
+    <color name="black">#000000</color>
+     <color name="white">#FFFFFF</color>
+
+    <color name="blue">#2095F2</color>
+    <!--Course Color-->
+    <color name="colorTextCourseTitle">#212121</color>
+    <!-- Chapter fragment  -->
+    <color name="colorChapterTitle">#5f9ac2</color>
+    <color name="colorChapterSubtext">#cdd1d4</color>
+    <color name="colorChapterItemLayoutOdd">#f2f9ff</color>
+    <color name="colorChapterItemLayoutEven">#e9f0f6</color>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/leftPaddingItemChapter"
+    android:background="@drawable/drawable_rectangle_sharp"
+    android:elevation="@dimen/leftPaddingItemChapter">
+
+    <TextView
+        android:id="@+id/textViewContactUSHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Contact Us"
+        android:textColor="@color/colorChapterTitle"
+        android:textSize="@dimen/sizeHeaderAboutUS"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/textViewContactUSBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewContactUSHeader"
+        android:maxLines="1100"
+        android:text="@string/contact_us"
+        android:textColor="@color/colorEditTextEmail"
+        android:textSize="@dimen/sizeBodyAboutUS"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
+
