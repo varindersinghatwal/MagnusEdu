@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.magnus.edutech.MainRoutingClass;
+import com.magnus.edutech.view.mapper.MainRoutingClass;
 import com.magnus.edutech.R;
 import com.magnus.edutech.model.Chapters;
-import com.magnus.edutech.webservices.GlobalConstants;
+import com.magnus.edutech.App.GlobalConstants;
 
 import java.util.List;
 

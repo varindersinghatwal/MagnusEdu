@@ -6,17 +6,14 @@ import android.os.Build;
 
 import com.magnus.edutech.App.GlobalConstants;
 import com.magnus.edutech.R;
-import com.magnus.edutech.model.Chapters;
-import com.magnus.edutech.model.Course;
-import com.magnus.edutech.model.Videos;
-import com.magnus.edutech.model.javaSingletonClasses.LecturesSingleton;
+import com.magnus.edutech.model.User;
 import com.magnus.edutech.webservices.AsyncCallbackInterface;
 import com.magnus.edutech.webservices.JsonParser;
 import com.magnus.edutech.webservices.RequestCallbackListener;
 import com.magnus.edutech.webservices.RequestParameter;
-import com.magnus.edutech.webservices.lectureservices.asynctask.LectureServicesAsyncTask;
-import com.magnus.edutech.webservices.lectureservices.requestparameter.GetLecturesRequestParam;
-import com.magnus.edutech.webservices.lectureservices.responseparser.LectureJsonParser;
+import com.magnus.edutech.webservices.userservices.asynctask.UserServicesAsyncTask;
+import com.magnus.edutech.webservices.userservices.requestparameter.GetUsersRequestParam;
+import com.magnus.edutech.webservices.userservices.responseparser.UsersJsonParser;
 import com.magnus.edutech.webservices.userservices.servercall.MakeAUsersServerCall;
 
 import org.apache.http.NameValuePair;
@@ -31,28 +28,91 @@ public class MakeAUsersServerCallImpl implements MakeAUsersServerCall {
 
     private boolean isExecuted = false;
     private RequestCallbackListener requestCallbackListener;
-    private LectureServicesAsyncTask userServicesAsyncTask;
     private RequestParameter requestParameter;
-    private GetLecturesRequestParam getLecturesRequestParam;
+    private GetUsersRequestParam getUsersRequestParam;
     private List<NameValuePair> param;
-    LecturesSingleton lecturesSingleton;
+    private UserServicesAsyncTask userServicesAsyncTask;
+    //JSON PARSE
+    private JsonParser jsonParser;
+    private UsersJsonParser usersJsonParser;
 
     public MakeAUsersServerCallImpl(RequestCallbackListener ev) {
         this.requestCallbackListener = ev;
         requestParameter = new RequestParameter();
-        lecturesSingleton = LecturesSingleton.getInstance();
     }
 
-    //Subjects
     @Override
-    public void serverCallSubjects(Context context, Course course) {
+    public void serverCallUserLogin(Context context, User user) {
+        getUsersRequestParam = requestParameter.getUsersRequestParamObject();
+        param = getUsersRequestParam.UserLogin(user);
+        callService(context, param, GlobalConstants.LOGIN_API, context.getString(R.string.loginLoading), user);
+    }
+
+    @Override
+    public void serverCallUserLoginResponse(String response) {
+        jsonParser = new JsonParser();
+        usersJsonParser = jsonParser.getUserParserObject();
+        User user = usersJsonParser.parseUserLoginResponse(response);
+        if (user != null) {
+            isExecuted = true;
+        } else {
+            isExecuted = false;
+        }
+        requestCallbackListener.notifyToCaller(isExecuted, user);
+    }
+
+    @Override
+    public void serverCallUserRegistration(Context context, User user) {
+        getUsersRequestParam = requestParameter.getUsersRequestParamObject();
+        param = getUsersRequestParam.UserLogin(user);
+        callService(context, param, GlobalConstants.REGISTRATION_API, context.getString(R.string.registrationLoading), user);
+    }
+
+    @Override
+    public void serverCallUserRegistrationResponse(String response, User registeredUser) {
+        jsonParser = new JsonParser();
+        usersJsonParser = jsonParser.getUserParserObject();
+        User user = usersJsonParser.parseUserLoginResponse(response);
+        if (user != null) {
+            isExecuted = true;
+            user.setEmail(registeredUser.getEmail());
+            user.setPassword(registeredUser.getPassword());
+        } else {
+            isExecuted = false;
+        }
+        requestCallbackListener.notifyToCaller(isExecuted, user);
+    }
+
+    @Override
+    public void serverCallForgetPassword(Context context, User user) {
+        getUsersRequestParam = requestParameter.getUsersRequestParamObject();
+        param = getUsersRequestParam.UserLogin(user);
+        callService(context, param, GlobalConstants.FORGET_PASSWORD_API, context.getString(R.string.registrationLoading), user);
+    }
+
+    @Override
+    public void serverCallForgetPasswordResponse(String response) {
+
+    }
+
+    private void callService(Context context, List<NameValuePair> param, final String url, String message, final User user) {
         try {
-            getLecturesRequestParam = requestParameter.getRequestParamObject();
-            param = getLecturesRequestParam.getSubjectsParam(course);
-            userServicesAsyncTask = new LectureServicesAsyncTask(context, param, GlobalConstants.GET_SUBJECTS_API, "", GlobalConstants.GET, new AsyncCallbackInterface() {
+
+            userServicesAsyncTask = new UserServicesAsyncTask(context, param, url, message, GlobalConstants.POST, new AsyncCallbackInterface() {
                 @Override
                 public void onPostExecute(String response) {
-                    serverCallSubjectsResponse(response);
+                    switch (url) {
+                        case GlobalConstants.LOGIN_API:
+                            serverCallUserLoginResponse(response);
+                            break;
+                        case GlobalConstants.REGISTRATION_API:
+                            serverCallUserRegistrationResponse(response, user);
+                            break;
+                        case GlobalConstants.FORGET_PASSWORD_API:
+                            serverCallForgetPasswordResponse(response);
+                            break;
+                    }
+
                 }
             });
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
@@ -62,93 +122,5 @@ public class MakeAUsersServerCallImpl implements MakeAUsersServerCall {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void serverCallSubjectsResponse(String response) {
-        JsonParser jsonParser = new JsonParser();
-        LectureJsonParser lectureJsonParser = jsonParser.getLectureParseObject();
-        List<Course> courseList = lectureJsonParser.getListOfCourse(response);
-        if (courseList != null) {
-            lecturesSingleton.setCourseList(courseList);
-            isExecuted = true;
-        } else {
-            isExecuted = false;
-        }
-        requestCallbackListener.notifyToCaller(isExecuted, response);
-    }
-
-    //Categories
-    @Override
-    public void serverCallCategories(Context context, Chapters chapters) {
-        try {
-            getLecturesRequestParam = requestParameter.getRequestParamObject();
-            param = getLecturesRequestParam.getChaptersParam(chapters);
-            userServicesAsyncTask = new LectureServicesAsyncTask(context, null, GlobalConstants.GET_CATEGORIES_API,
-                    context.getString(R.string.server_loading), GlobalConstants.POST,
-                    new AsyncCallbackInterface() {
-                        @Override
-                        public void onPostExecute(String response) {
-                            serverCallSubjectsResponse(response);
-                        }
-                    });
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-                userServicesAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-            else
-                userServicesAsyncTask.execute();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void serverCallCategoriesResponse(String response) {
-        JsonParser jsonParser = new JsonParser();
-        LectureJsonParser lectureJsonParser = jsonParser.getLectureParseObject();
-        List<Chapters> chaptersList = lectureJsonParser.getListOfChapters(response);
-        if (chaptersList != null) {
-            lecturesSingleton.setChaptersList(chaptersList);
-            isExecuted = true;
-        } else {
-            isExecuted = false;
-        }
-        requestCallbackListener.notifyToCaller(isExecuted, response);
-    }
-
-    //Videos
-    @Override
-    public void serverCallVideos(Context context, Videos videos) {
-        try {
-            getLecturesRequestParam = requestParameter.getRequestParamObject();
-            param = getLecturesRequestParam.getVideosParam(videos);
-            userServicesAsyncTask = new LectureServicesAsyncTask(context, null, GlobalConstants.GET_VIDEOS_API,
-                    context.getString(R.string.server_loading), GlobalConstants.POST,
-                    new AsyncCallbackInterface() {
-                        @Override
-                        public void onPostExecute(String response) {
-                            serverCallSubjectsResponse(response);
-                        }
-                    });
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-                userServicesAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-            else
-                userServicesAsyncTask.execute();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void serverCallVideosResponse(String response) {
-        JsonParser jsonParser = new JsonParser();
-        LectureJsonParser lectureJsonParser = jsonParser.getLectureParseObject();
-        List<Videos> videosList = lectureJsonParser.getListOfVideos(response);
-        if (videosList != null) {
-            lecturesSingleton.setVideosList(videosList);
-            isExecuted = true;
-        } else {
-            isExecuted = false;
-        }
-        requestCallbackListener.notifyToCaller(isExecuted, response);
     }
 }

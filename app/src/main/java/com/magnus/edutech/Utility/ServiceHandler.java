@@ -1,4 +1,4 @@
-package com.magnus.edutech.Utility;
+package com.magnus.edutech.utility;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

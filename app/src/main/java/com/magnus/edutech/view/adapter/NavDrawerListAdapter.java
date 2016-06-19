@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.magnus.edutech.R;
 import com.magnus.edutech.model.NavDrawerItem;
-import com.magnus.edutech.webservices.GlobalConstants;
+import com.magnus.edutech.App.GlobalConstants;
 
 import java.util.ArrayList;
 

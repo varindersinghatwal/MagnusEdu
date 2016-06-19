@@ -36,7 +36,7 @@ public class GlobalConstants
     public static final String FROM = "from";
     public static final String MESSAGE = "message";
     public static final String AMOUNT = "amount";
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
 
 
     // Registration Service
@@ -76,10 +76,16 @@ public class GlobalConstants
 
 
     // Time Out
+    public static final String GET = "GET";
+    public static final String POST = "POST";
     public static final int TIMEOUT_MILLISEC = 16000;
     // API URL http://magnusedutech.org/admin/paidclient.php
     public static final String MAIN_URL = "http://magnusedutech.org/admin/";
     public static final String GET_VIDEO_DATA = MAIN_URL + "videotree.php";
+    public static final String GET_SUBJECTS_API = MAIN_URL + "api_subject.php";
+    public static final String GET_CATEGORIES_API = MAIN_URL + "api_category.php";
+    public static final String GET_VIDEOS_API = MAIN_URL + "api_videos.php";
+
     public static final String UPDATE_STATUS_API = MAIN_URL + "mobile_paid_status.php";
     public static final String LOGIN_API = MAIN_URL + "mobile_login.php";
     public static final String REGISTRATION_API = MAIN_URL + "mobile_register.php";

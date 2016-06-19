@@ -13,10 +13,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.magnus.edutech.activities.HomeScreenActivity;
-import com.magnus.edutech.MainRoutingClass;
+import com.magnus.edutech.view.mapper.MainRoutingClass;
 import com.magnus.edutech.R;
 import com.magnus.edutech.model.Course;
-import com.magnus.edutech.webservices.GlobalConstants;
+import com.magnus.edutech.App.GlobalConstants;
 import com.magnus.edutech.webservices.HelpingClass;
 
 import java.util.HashMap;

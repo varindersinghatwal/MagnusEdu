@@ -1,4 +1,4 @@
-package com.magnus.edutech.webservices.lectureservices.AsyncTask;
+package com.magnus.edutech.webservices.lectureservices.asynctask;
 
 import android.content.Context;
 import android.os.AsyncTask;

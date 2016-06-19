@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.magnus.edutech.R;
-import com.magnus.edutech.webservices.GlobalConstants;
+import com.magnus.edutech.App.GlobalConstants;
 
 public class FragmentResources extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.magnus.edutech.view.Utility.interfaces;
+package com.magnus.edutech.view.utility.interfaces;
 /**
  * created by jugalkishorjoshi on
  * */

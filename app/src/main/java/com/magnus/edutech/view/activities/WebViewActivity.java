@@ -12,12 +12,12 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.magnus.edutech.R;
-import com.magnus.edutech.Utility.AvenuesParams;
-import com.magnus.edutech.Utility.Constants;
-import com.magnus.edutech.Utility.RSAUtility;
-import com.magnus.edutech.Utility.ServiceHandler;
-import com.magnus.edutech.Utility.ServiceUtility;
-import com.magnus.edutech.webservices.GlobalConstants;
+import com.magnus.edutech.utility.AvenuesParams;
+import com.magnus.edutech.utility.Constants;
+import com.magnus.edutech.utility.RSAUtility;
+import com.magnus.edutech.utility.ServiceHandler;
+import com.magnus.edutech.utility.ServiceUtility;
+import com.magnus.edutech.App.GlobalConstants;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;

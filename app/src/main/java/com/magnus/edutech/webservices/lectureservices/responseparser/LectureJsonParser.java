@@ -4,6 +4,8 @@ import com.magnus.edutech.model.Chapters;
 import com.magnus.edutech.model.Course;
 import com.magnus.edutech.model.Videos;
 
+import org.json.JSONArray;
+
 import java.util.List;
 
 /**
@@ -19,4 +21,8 @@ public interface LectureJsonParser {
 
     // parse  ChapterList
     List<Videos> getListOfVideos(String response);
+
+    // getJson Object
+
+    JSONArray getJsonObject(String response);
 }

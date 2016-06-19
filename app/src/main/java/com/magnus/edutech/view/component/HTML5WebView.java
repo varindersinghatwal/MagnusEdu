@@ -16,7 +16,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.magnus.edutech.R;
-import com.magnus.edutech.webservices.GlobalConstants;
+import com.magnus.edutech.App.GlobalConstants;
 
 public class HTML5WebView extends WebView {
 	

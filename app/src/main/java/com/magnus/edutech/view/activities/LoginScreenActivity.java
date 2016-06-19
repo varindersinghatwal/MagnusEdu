@@ -18,17 +18,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.magnus.edutech.view.mapper.MainRoutingClass;
-import com.magnus.edutech.R;
-import com.magnus.edutech.view.utility.interfaces.GenericPromptDialogBoxInterface;
-import com.magnus.edutech.model.User;
 import com.magnus.edutech.App.GlobalConstants;
+import com.magnus.edutech.R;
+import com.magnus.edutech.model.User;
+import com.magnus.edutech.view.mapper.MainRoutingClass;
 import com.magnus.edutech.view.utility.Utilities;
+import com.magnus.edutech.view.utility.interfaces.GenericPromptDialogBoxInterface;
+import com.magnus.edutech.webservices.MakeAServiceCall;
+import com.magnus.edutech.webservices.RequestCallbackListener;
+import com.magnus.edutech.webservices.userservices.servercall.MakeAUsersServerCall;
 
-import org.json.JSONException;
 
-
-public class LoginScreenActivity extends Activity implements OnClickListener {
+public class LoginScreenActivity extends Activity implements OnClickListener, RequestCallbackListener {
 
     //Class
     private MainRoutingClass mainRoutingClass;
@@ -106,19 +107,18 @@ public class LoginScreenActivity extends Activity implements OnClickListener {
         switch (v.getId()) {
             case R.id.signInSubmitButtonId:
 
-
+            // Login Form Submission
                 if (submitForm()) {
                     String email = editTextUserName.getText().toString();
                     String password = editTextUserPassword.getText().toString();
                     User user = new User(email, password);
-                    try {
-                        loadDataBackgroundService.CheckLoginFromServer(context, user);
-                    } catch (NumberFormatException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    } catch (JSONException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
+                    if (utilities.isNetworkAvailable(context)) {
+                        MakeAServiceCall makeAServiceCall = new MakeAServiceCall();
+                        MakeAUsersServerCall makeALectureServerCall = makeAServiceCall.getUserServerCallObject(this);
+                        makeALectureServerCall.serverCallUserLogin(context, user);
+                    } else {
+                        utilities.showInformativeDialog(context.getString(R.string.error_network_header),
+                                context.getString(R.string.error_network_body), context);
                     }
                 }
 
@@ -209,6 +209,27 @@ public class LoginScreenActivity extends Activity implements OnClickListener {
         }
     }
 
+    @Override
+    public void notifyToCaller(boolean isExecuted, Object obj) {
+        if(isExecuted)
+        {
+            User user = (User) obj;
+            if(user.isIs_query_execute())
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+        else
+        {
+            utilities.showInformativeDialog(context.getString(R.string.err_server_header), context.getString(R.string.err_server_body), context);
+        }
+
+    }
+
     private class MyTextWatcher implements TextWatcher {
 
         private View view;
@@ -250,14 +271,13 @@ public class LoginScreenActivity extends Activity implements OnClickListener {
         if (utilities.isValidEmail(value)) {
             User user = new User();
             user.setEmail(value);
-            try {
-                loadDataBackgroundService.forgetPassword(context, user);
-            } catch (NumberFormatException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+            if (utilities.isNetworkAvailable(context)) {
+                MakeAServiceCall makeAServiceCall = new MakeAServiceCall();
+                MakeAUsersServerCall makeALectureServerCall = makeAServiceCall.getUserServerCallObject(this);
+                makeALectureServerCall.serverCallForgetPassword(context, user);
+            } else {
+                utilities.showInformativeDialog(context.getString(R.string.error_network_header),
+                        context.getString(R.string.error_network_body), context);
             }
         } else {
             utilities.showInformativeDialog(context.getString(R.string.forget_password_prompt_header), context.getString(R.string.err_msg_email), context);

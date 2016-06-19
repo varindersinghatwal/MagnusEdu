@@ -1,9 +1,7 @@
 package com.magnus.edutech.model;
 
 
-import java.io.Serializable;
-
-public class User extends CommonDomain implements Serializable{
+public class User extends CommonDomain {
 	 private String fullName;
     private String email;
     private String mobile;

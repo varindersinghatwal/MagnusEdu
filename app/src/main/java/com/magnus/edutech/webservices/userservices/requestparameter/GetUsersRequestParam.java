@@ -1,8 +1,6 @@
 package com.magnus.edutech.webservices.userservices.requestparameter;
 
-import com.magnus.edutech.model.Chapters;
-import com.magnus.edutech.model.Course;
-import com.magnus.edutech.model.Videos;
+import com.magnus.edutech.model.User;
 
 import org.apache.http.NameValuePair;
 
@@ -12,11 +10,16 @@ import java.util.List;
  * Created by joshi on 6/19/2016.
  */
 public interface GetUsersRequestParam {
+    //User Registration
+    List<NameValuePair> UserRegistration(User user);
 
-    List<NameValuePair> getSubjectsParam(Course course);
-    //get  parameter list for Categories server call
-    List<NameValuePair> getChaptersParam(Chapters chapters);
-    //get parameter list for Video server call
-    List<NameValuePair> getVideosParam(Videos videos);
+    // User Login
+    List<NameValuePair> UserLogin(User user);
+
+    // Forget password
+    List<NameValuePair> ForgetPassword(User user);
+
+    // User payment status
+    List<NameValuePair> UpdateUserStatus(User user);
 
 }

@@ -1,4 +1,4 @@
-package com.magnus.edutech.view.Mapper;
+package com.magnus.edutech.view.mapper;
 
 
 import android.content.Context;
@@ -9,12 +9,13 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 
 import com.magnus.edutech.R;
+import com.magnus.edutech.view.activities.LoginScreenActivity;
 import com.magnus.edutech.view.activities.RegistrationScreenActivity;
 import com.magnus.edutech.view.fragments.FragmentAboutUs;
 import com.magnus.edutech.view.fragments.FragmentChaptersList;
 import com.magnus.edutech.view.fragments.FragmentHomeCourse;
 import com.magnus.edutech.view.fragments.FragmentVideosList;
-import com.magnus.edutech.webservices.GlobalConstants;
+import com.magnus.edutech.App.GlobalConstants;
 
 import java.io.Serializable;
 
@@ -35,7 +36,7 @@ public class MainRoutingClass {
         Intent intent = null;
         switch (value) {
             case GlobalConstants.ACTIVITY_LOGIN:
-                intent = new Intent(context, ActivityLoginScreen.class);
+                intent = new Intent(context, LoginScreenActivity.class);
                 break;
             case GlobalConstants.ACTIVITY_REGISTRATION:
                 intent = new Intent(context, RegistrationScreenActivity.class);

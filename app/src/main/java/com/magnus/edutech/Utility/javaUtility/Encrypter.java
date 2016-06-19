@@ -1,4 +1,4 @@
-package com.magnus.edutech.Utility.javaUtility;
+package com.magnus.edutech.utility.javautility;
 
 /**
  * Created by varinderatwal on 25/11/15.

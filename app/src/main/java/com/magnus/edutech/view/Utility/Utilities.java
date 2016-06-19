@@ -1,4 +1,4 @@
-package com.magnus.edutech.view.Utility;
+package com.magnus.edutech.view.utility;
 
 /**
  * Developer : Jugal Kishor Joshi
@@ -9,27 +9,74 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.magnus.edutech.R;
-import com.magnus.edutech.view.Utility.interfaces.GenericConfirmationDialogBoxInterface;
-import com.magnus.edutech.view.Utility.interfaces.GenericInformativeDialogBoxInterface;
-import com.magnus.edutech.view.Utility.interfaces.GenericPromptDialogBoxInterface;
+import com.magnus.edutech.view.utility.interfaces.GenericConfirmationDialogBoxInterface;
+import com.magnus.edutech.view.utility.interfaces.GenericInformativeDialogBoxInterface;
+import com.magnus.edutech.view.utility.interfaces.GenericPromptDialogBoxInterface;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Utilities {
+    // PREFERENCE NAME
+    public static final String PREFERENCE_NAME = "MAGNUS_1.0";
     public static long back_pressed;
+    public static String VIDEO_FOLDER = "";
+    public static String OTHER_FOLDER = "";
+    // Shared Preference
+    public static SharedPreferences appSharedPreference;
     private final String TAG = Utilities.class.getName();
 
     public Utilities() {
     }
+
+    public static void save_Preferences(String key, String value, Context app_context) {
+        appSharedPreference = app_context.getSharedPreferences(PREFERENCE_NAME, 0);
+        SharedPreferences.Editor editor = appSharedPreference.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    public static void save_Preferences_boolean(String key, boolean value, Context app_context) {
+        appSharedPreference = app_context.getSharedPreferences(PREFERENCE_NAME, 0);
+        SharedPreferences.Editor editor = appSharedPreference.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
+
+    public static String get_Preferences(String key, Context app_context) {
+        appSharedPreference = app_context.getSharedPreferences(PREFERENCE_NAME, 0);
+        return appSharedPreference.getString(key, "null");
+    }
+
+    public static boolean get_Preferences_boolean(String key, Context app_context) {
+        appSharedPreference = app_context.getSharedPreferences(PREFERENCE_NAME, 0);
+        return appSharedPreference.getBoolean(key, false);
+    }
+
+    public static void setVideoFolderLocation(String value) {
+        VIDEO_FOLDER = value;
+    }
+
+    public static String getVideoFolderLocation() {
+        return VIDEO_FOLDER + "/";
+    }
+
+    public static void setOtherFolderLocation(String value) {
+        OTHER_FOLDER = value;
+    }
+
+    public static String getOtherFolderLocation() {
+        return OTHER_FOLDER + "/";
+    }
+
+
     /**
      * Network connectivity.
      */
@@ -48,7 +95,6 @@ public class Utilities {
         }
         return false;
     }
-
     // Get String as Per String Id
     public String getStringFromId(int id, Context context) {
         return context.getResources().getString(id);
@@ -181,7 +227,7 @@ public class Utilities {
      * isCancelable                  - Sets whether the dialog is cancelable or not. Default is true.
      * dialogBoxInterface            - Interface object that handles its click.
      */
-    public void getGenericPromptDialog(Context mContext,View promptView,String positiveBtnCaption, String negativeBtnCaption, boolean isCancelable, final GenericPromptDialogBoxInterface dialogBoxInterface) {
+    public void getGenericPromptDialog(Context mContext, View promptView, String positiveBtnCaption, String negativeBtnCaption, boolean isCancelable, final GenericPromptDialogBoxInterface dialogBoxInterface) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         // set prompts.xml to alertdialog builder
@@ -199,7 +245,7 @@ public class Utilities {
                 .setPositiveButton(positiveBtnCaption, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         String email = userInput.getText().toString().trim();
-                        dialogBoxInterface.PositiveMethod(dialog, id,email);
+                        dialogBoxInterface.PositiveMethod(dialog, id, email);
                     }
                 })
                 .setNegativeButton(negativeBtnCaption, new DialogInterface.OnClickListener() {
@@ -209,17 +255,17 @@ public class Utilities {
                     }
                 });
 
-              AlertDialog alert = builder.create();
-                alert.setCancelable(isCancelable);
-                alert.show();
-                if (isCancelable) {
-                    alert.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                        @Override
-                        public void onCancel(DialogInterface arg0) {
-                            dialogBoxInterface.NegativeMethod(null, 0);
-                        }
-                    });
+        AlertDialog alert = builder.create();
+        alert.setCancelable(isCancelable);
+        alert.show();
+        if (isCancelable) {
+            alert.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface arg0) {
+                    dialogBoxInterface.NegativeMethod(null, 0);
                 }
+            });
+        }
     }
 
     /***
@@ -249,7 +295,6 @@ public class Utilities {
         alert = builder.create();
         alert.show();
     }
-
 
 
     // On activity back pressed.

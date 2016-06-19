@@ -1,4 +1,4 @@
-package com.magnus.edutech.Utility;
+package com.magnus.edutech.utility;
 
 
 public class Constants {

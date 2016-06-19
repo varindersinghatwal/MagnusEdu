@@ -70,7 +70,7 @@
     </array>
 
     <!--Home Icon -->
-    <array 	  name="course_icon">
+    <array name="course_icon">
         <item>@drawable/icon_1</item>
         <item>@drawable/icon_2</item>
         <item>@drawable/icon_3</item>
@@ -83,9 +83,7 @@
     <string name="desc_list_item_icon">Item Icon</string>
     <string name="title_activity_contact_us">ContactUs</string>
     <string name="exitMessage">Press enter again to exit.</string>
-
-    <!--  Addition by jugal  -->
-
+    <!--  Common  -->
     <string name="emailAddress">Email</string>
     <string name="forgetPassword"><u>Forget Password</u></string>
     <string name="password">Password</string>
@@ -93,10 +91,12 @@
     <string name="messageSignUp">Not a member? Sign Up Now</string>
     <string name="signUp">Sign Up</string>
     <string name="loginOptions">Login Using</string>
+    <string name="loginLoading">Login ...</string>
     <!--Registration fields -->
     <string name="userName">Full Name</string>
     <string name="userMobileNumber">Mobile No</string>
     <string name="confirmPassword">Confirm Password</string>
+    <string name="registrationLoading">Registration  ...</string>
     <!--Error Msg registration-->
     <string name="err_msg_name">Enter your full name</string>
     <string name="err_msg_email">Enter valid email address</string>
@@ -106,40 +106,35 @@
     <string name="err_msg_confirmation">Password and confirm password does not match</string>
     <!-- Home fragment : -->
     <string name="NoCourseFoundHF">No result found! for </string>
-
     <!--Resource fragment-->
     <string name="comingSoon">Coming soon ...</string>
-
-    <!--Server -->
-    <string name="err_server_header">Server error!</string>
-    <string name="err_server_body">Server is not responding</string>
-        <!--server Login error-->
+    <!--server Login error-->
     <string name="err_login_header">Login error!</string>
-        <!--server Login error-->
+    <!--server Login error-->
     <string name="err_registration_header">Registration error!</string>
     <!--Forget Password-->
+    <string name="forgetPasswordLoading">Sending password to registered email  ...</string>
     <string name="forget_password_prompt_header">Forget password </string>
     <string name="err_forget_password">Either the email is not valid or server is not responding </string>
     <string name="success_forget_password">Password has sent to the entered email. </string>
-
-
     <!--Alert Button-->
     <string name="alert_ok">Ok</string>
     <string name="alert_cancel">Cancel</string>
     <string name="alert_submit">Submit</string>
-
     <!--Activity pricing String-->
     <string name="packageOneSub">Subscribe for 6 months</string>
     <string name="packageTwoSub">Subscribe for 12 months</string>
     <string name="packageThreeSub">Subscribe for 18 months</string>
-
     <string name="packageOnePrice">Price : 7500/-</string>
     <string name="packageTwoPrice">Price : 12500/-</string>
     <string name="packageThreePrice">Price : 17000/-</string>
-
     <string name="buy">Buy</string>
-
-
-
+    <!-- Network :-->
+    <string name="error_network_header">Network Error !</string>
+    <string name="error_network_body">Please Check Your Internet Connection.</string>
+    <!--Server -->
+    <string name="err_server_header">Server error!</string>
+    <string name="err_server_body">Server is not responding</string>
+    <string name="server_loading">Loading data from server....</string>
 
 </resources>

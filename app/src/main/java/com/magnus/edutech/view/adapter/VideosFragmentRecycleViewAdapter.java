@@ -15,11 +15,10 @@ import com.magnus.edutech.activities.HomeScreenActivity;
 import com.magnus.edutech.activities.PriceListScreenActivity;
 import com.magnus.edutech.activities.ActivityShowVideosFromVimeo;
 import com.magnus.edutech.activities.VideoPlayScreenActivity;
-import com.magnus.edutech.BackgroundService.LoadDataInBackGround;
-import com.magnus.edutech.BackgroundService.RealPathUtil;
 import com.magnus.edutech.R;
 import com.magnus.edutech.model.Videos;
-import com.magnus.edutech.webservices.GlobalConstants;
+import com.magnus.edutech.view.utility.Utilities;
+import com.magnus.edutech.App.GlobalConstants;
 
 import org.json.JSONException;
 
@@ -193,7 +192,7 @@ public class VideosFragmentRecycleViewAdapter extends RecyclerView.Adapter<Video
         if (videos != null) {
             videoName = videoName + videos.getSubject_id() + videos.getCategory_id() + videos.getVideo_id()
                     + GlobalConstants.DOWNLOAD_VIDEO_EXTENSION;
-            String RootDir = GlobalConstants.getVideoFolderLocation();
+            String RootDir = Utilities.getVideoFolderLocation();
 
             String fullVideoPath = RootDir + videoName;
 
@@ -224,7 +223,7 @@ public class VideosFragmentRecycleViewAdapter extends RecyclerView.Adapter<Video
         if (videos != null) {
             videoName = videoName + videos.getSubject_id() + videos.getCategory_id() + videos.getVideo_id()
                     + GlobalConstants.DOWNLOAD_VIDEO_EXTENSION;
-            String RootDir = GlobalConstants.getVideoFolderLocation();
+            String RootDir = Utilities.getVideoFolderLocation();
 
             String fullVideoPath = RootDir + videoName;
 

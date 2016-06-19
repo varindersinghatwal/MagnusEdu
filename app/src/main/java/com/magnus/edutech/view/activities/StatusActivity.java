@@ -6,9 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.magnus.edutech.BackgroundService.LoadDataInBackGround;
 import com.magnus.edutech.R;
-import com.magnus.edutech.webservices.GlobalConstants;
+import com.magnus.edutech.App.GlobalConstants;
 
 
 public class StatusActivity extends ActionBarActivity {

@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,12 +20,11 @@ import com.magnus.edutech.App.GlobalConstants;
 import com.magnus.edutech.R;
 import com.magnus.edutech.view.utility.Utilities;
 import com.magnus.edutech.view.utility.interfaces.GenericInformativeDialogBoxInterface;
-import com.magnus.edutech.webservices.AsyncCallbackInterface;
-import com.magnus.edutech.webservices.lectureservices.AsyncTask.LectureServicesAsyncTask;
+import com.magnus.edutech.webservices.MakeAServiceCall;
+import com.magnus.edutech.webservices.RequestCallbackListener;
+import com.magnus.edutech.webservices.lectureservices.servercall.MakeALectureServerCall;
 
-import org.json.JSONException;
-
-public class SplashScreenActivity extends Activity implements OnClickListener {
+public class SplashScreenActivity extends Activity implements OnClickListener, RequestCallbackListener {
 
     // Variables
 
@@ -58,24 +56,12 @@ public class SplashScreenActivity extends Activity implements OnClickListener {
         checkNetworkConnection();
     }
 
-
+    //check connection and make a server call for subjects
     public void checkNetworkConnection() {
         if (utilities.isNetworkAvailable(context)) {
-            try {
-                // Get Course
-                  LectureServicesAsyncTask userServicesAsyncTask = new LectureServicesAsyncTask(context, null, GlobalConstants.GET_SUBJECTS_API, "", GlobalConstants.GET, new AsyncCallbackInterface() {
-                    @Override
-                    public void onPostExecute(String response) {
-                        updateUI(response);
-                    }
-                });
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-                    userServicesAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-                else
-                    userServicesAsyncTask.execute();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            MakeAServiceCall makeAServiceCall = new MakeAServiceCall();
+            MakeALectureServerCall makeALectureServerCall = makeAServiceCall.getLectureServerCallObject(this);
+            makeALectureServerCall.serverCallSubjects(context, null);
         } else {
             utilities.getGenericInformativeDialogBoxWithSingleButton(context, context.getString(R.string.error_network_header), context.getString(R.string.error_network_body), context.getString(R.string.alert_ok), false, new GenericInformativeDialogBoxInterface() {
                 @Override
@@ -122,6 +108,7 @@ public class SplashScreenActivity extends Activity implements OnClickListener {
         }
 
     }
+
     /* SET STATUS BAR COLOR : START */
     private void setStatusBarColor(View statusBar, int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -130,9 +117,21 @@ public class SplashScreenActivity extends Activity implements OnClickListener {
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
     }
-    private void updateUI(String response) {
-        if(GlobalConstants.DEBUG)
-            Log.d("UpdateUI",response);
-        splashHandler();
+
+
+    //Notification after request completed
+    @Override
+    public void notifyToCaller(boolean isExecuted, String response) {
+        if (GlobalConstants.DEBUG)
+            Log.d("UpdateUI", response);
+        if (isExecuted)
+            splashHandler();
+        else
+            utilities.getGenericInformativeDialogBoxWithSingleButton(context, context.getString(R.string.err_server_header), context.getString(R.string.err_server_body), context.getString(R.string.alert_ok), false, new GenericInformativeDialogBoxInterface() {
+                @Override
+                public void PositiveMethod(DialogInterface dialog, int id) {
+                    checkNetworkConnection();
+                }
+            });
     }
 }

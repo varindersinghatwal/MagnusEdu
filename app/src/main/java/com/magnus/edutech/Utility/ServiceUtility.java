@@ -1,4 +1,4 @@
-package com.magnus.edutech.Utility;
+package com.magnus.edutech.utility;
 
 import java.io.IOException;
 import java.util.ArrayList;

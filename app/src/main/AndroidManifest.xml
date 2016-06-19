@@ -23,7 +23,7 @@
         android:name="com.magnus.edutech.App.App">
 
         <activity
-            android:name=".ActivitySplashScreen"
+            android:name=".view.activities.SplashScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityMain"
+            android:name=".view.activities.HomeScreenActivity"
             android:finishOnTaskLaunch="true"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"
@@ -41,48 +41,41 @@
             >
         </activity>
         <!--Login Activity -->
-        <activity
-            android:name=".ActivityLoginScreen"
-            android:screenOrientation="portrait"
-            >
-        </activity>
 
         <!--Registration Activity -->
         <activity
-            android:name=".ActivityRegistrationScreen"
+            android:name=".view.activities.RegistrationScreenActivity"
             android:screenOrientation="portrait"
             >
         </activity>
         <!-- Activity Price -->
         <activity
-            android:name=".ActivityPriceList"
+            android:name=".view.activities.PriceListScreenActivity"
             android:screenOrientation="portrait"
             >
         </activity>
         <activity
-            android:name=".ActivityShowVideosFromVimeo"
+            android:name=".view.activities.ActivityShowVideosFromVimeo"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".ActivityVideo"
+            android:name=".view.activities.VideoPlayScreenActivity"
             android:screenOrientation="landscape" >
         </activity>
 
          <activity
-            android:name=".StatusActivity"
+            android:name=".view.activities.StatusActivity"
             android:label="@string/app_name"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".WebViewActivity"
+            android:name=".view.activities.WebViewActivity"
             android:label="@string/app_name"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
         </activity>
-        <service
-            android:name="com.magnus.edutech.BackgroundService.LoadDataInBackGround" android:exported="false"
-            android:enabled="true"/>
+
     </application>
 
 

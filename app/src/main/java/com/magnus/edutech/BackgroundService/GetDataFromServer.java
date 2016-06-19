@@ -6,9 +6,9 @@ import android.os.Build;
 
 import com.magnus.edutech.model.User;
 import com.magnus.edutech.model.Videos;
-import com.magnus.edutech.webservices.GlobalConstants;
-import com.magnus.edutech.webservices.ServiceDownloadVideo;
-import com.magnus.edutech.webservices.ServicesLoginRegistration;
+import com.magnus.edutech.view.utility.Utilities;
+import com.magnus.edutech.App.GlobalConstants;
+import com.magnus.edutech.webservices.userservices.asynctask.UserServicesAsyncTask;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class GetDataFromServer {
 
     //Classes
-    private ServicesLoginRegistration servicesLoginRegistration;
+    private UserServicesAsyncTask userServicesAsyncTask;
     private ServiceDownloadVideo serviceDownloadVideos;
     private Context context;
 
@@ -39,11 +39,11 @@ public class GetDataFromServer {
         if (GlobalConstants.DEBUG)
             System.out.println(" PERSON_DATA  :- \n " + JSON_FOR_GET_VIDEO_DETAIL);
 
-        servicesLoginRegistration = new ServicesLoginRegistration(context, JSON_FOR_GET_VIDEO_DETAIL, null);
+        userServicesAsyncTask = new UserServicesAsyncTask(context, JSON_FOR_GET_VIDEO_DETAIL, null);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-            servicesLoginRegistration.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            userServicesAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         else
-            servicesLoginRegistration.execute();
+            userServicesAsyncTask.execute();
 
 
     }
@@ -67,11 +67,11 @@ public class GetDataFromServer {
         if (GlobalConstants.DEBUG)
             System.out.println(" PERSON_DATA  :- \n " + JSON_FOR_GET_VIDEO_DETAIL);
 
-        servicesLoginRegistration = new ServicesLoginRegistration(context, JSON_FOR_GET_VIDEO_DETAIL, null);
+        userServicesAsyncTask = new UserServicesAsyncTask(context, JSON_FOR_GET_VIDEO_DETAIL, null);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-            servicesLoginRegistration.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            userServicesAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         else
-            servicesLoginRegistration.execute();
+            userServicesAsyncTask.execute();
 
 
     }
@@ -93,11 +93,11 @@ public class GetDataFromServer {
         if (GlobalConstants.DEBUG)
             System.out.println(" PERSON_DATA  :- \n " + JSON_FORGET_PASSWORD);
 
-        servicesLoginRegistration = new ServicesLoginRegistration(context, JSON_FORGET_PASSWORD, null);
+        userServicesAsyncTask = new UserServicesAsyncTask(context, JSON_FORGET_PASSWORD, null);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-            servicesLoginRegistration.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            userServicesAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         else
-            servicesLoginRegistration.execute();
+            userServicesAsyncTask.execute();
 
 
     }
@@ -126,11 +126,11 @@ public class GetDataFromServer {
         if (GlobalConstants.DEBUG)
             System.out.println(" PERSON_DATA  :- \n " + JSON_FOR_REGISTRATION);
 
-        servicesLoginRegistration = new ServicesLoginRegistration(context, JSON_FOR_REGISTRATION, null);
+        userServicesAsyncTask = new UserServicesAsyncTask(context, JSON_FOR_REGISTRATION, null);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-            servicesLoginRegistration.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            userServicesAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         else
-            servicesLoginRegistration.execute();
+            userServicesAsyncTask.execute();
 
 
     }
@@ -152,11 +152,11 @@ public class GetDataFromServer {
         }
 
 
-        servicesLoginRegistration = new ServicesLoginRegistration(context, JSON_FOR_GET_VIDEO_DETAIL, null);
+        userServicesAsyncTask = new UserServicesAsyncTask(context, JSON_FOR_GET_VIDEO_DETAIL, null);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-            servicesLoginRegistration.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            userServicesAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         else
-            servicesLoginRegistration.execute();
+            userServicesAsyncTask.execute();
 
 
     }
@@ -209,11 +209,11 @@ public class GetDataFromServer {
         if (GlobalConstants.DEBUG)
             System.out.println(" PERSON_DATA  :- \n " + JSON_FOR_STATUS_UPDATE);
 
-        servicesLoginRegistration = new ServicesLoginRegistration(context, JSON_FOR_STATUS_UPDATE, null);
+        userServicesAsyncTask = new UserServicesAsyncTask(context, JSON_FOR_STATUS_UPDATE, null);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-            servicesLoginRegistration.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            userServicesAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         else
-            servicesLoginRegistration.execute();
+            userServicesAsyncTask.execute();
 
 
     }
@@ -227,7 +227,7 @@ public class GetDataFromServer {
 
     public void updateStatusToServerAfterPayment(Context context, String Amount) throws NumberFormatException, JSONException {
 
-        String ClientId = GlobalConstants.get_Preferences(GlobalConstants.CLIENT_ID, context);
+        String ClientId = Utilities.get_Preferences(GlobalConstants.CLIENT_ID, context);
         JSONObject JSON_FOR_STATUS_UPDATE_AFTER_PAYMENT = new JSONObject();
         JSON_FOR_STATUS_UPDATE_AFTER_PAYMENT.put(GlobalConstants.FROM, GlobalConstants.UPDATE_ON_SERVER);
         JSON_FOR_STATUS_UPDATE_AFTER_PAYMENT.put(GlobalConstants.MESSAGE, " Updating on server ....");
@@ -238,11 +238,11 @@ public class GetDataFromServer {
         if (GlobalConstants.DEBUG)
             System.out.println(" PERSON_DATA  :- \n " + JSON_FOR_STATUS_UPDATE_AFTER_PAYMENT);
 
-        servicesLoginRegistration = new ServicesLoginRegistration(context, JSON_FOR_STATUS_UPDATE_AFTER_PAYMENT, null);
+        userServicesAsyncTask = new UserServicesAsyncTask(context, JSON_FOR_STATUS_UPDATE_AFTER_PAYMENT, null);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-            servicesLoginRegistration.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            userServicesAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         else
-            servicesLoginRegistration.execute();
+            userServicesAsyncTask.execute();
 
 
     }

@@ -1,28 +1,21 @@
 package com.magnus.edutech.webservices.userservices.responseparser;
 
-import com.magnus.edutech.model.Chapters;
-import com.magnus.edutech.model.Course;
-import com.magnus.edutech.model.Videos;
+import com.magnus.edutech.model.User;
 
-import org.json.JSONArray;
-
-import java.util.List;
+import org.json.JSONObject;
 
 /**
  * Created by joshi on 6/19/2016.
  */
 public interface UsersJsonParser {
 
-    // parse subject list
-    List<Course> getListOfCourse(String response);
 
-    // parse  ChapterList
-    List<Chapters> getListOfChapters(String response);
-
-    // parse  ChapterList
-    List<Videos> getListOfVideos(String response);
-
+    // login response
+    User parseUserLoginResponse(String response);
+    // Registration response
+    User parseUserRegistrationResponse(String response);
+    //Forget password response
+    User parseForgetPasswordResponse(String response);
     // getJson Object
-
-    JSONArray getJsonObject(String response);
+    JSONObject getJsonObject(String response);
 }

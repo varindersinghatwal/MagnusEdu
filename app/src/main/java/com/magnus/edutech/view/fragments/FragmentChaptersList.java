@@ -15,7 +15,7 @@ import com.magnus.edutech.R;
 import com.magnus.edutech.view.adapter.ChapterFragmentRecyleViewAdapter;
 import com.magnus.edutech.model.Chapters;
 import com.magnus.edutech.model.Course;
-import com.magnus.edutech.webservices.GlobalConstants;
+import com.magnus.edutech.App.GlobalConstants;
 import com.magnus.edutech.webservices.HelpingClass;
 
 import java.util.List;

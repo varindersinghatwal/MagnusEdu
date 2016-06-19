@@ -3,113 +3,106 @@ package com.magnus.edutech.webservices.userservices.responseparser.impl;
 import android.util.Log;
 
 import com.magnus.edutech.App.GlobalConstants;
-import com.magnus.edutech.model.Chapters;
-import com.magnus.edutech.model.Course;
-import com.magnus.edutech.model.Videos;
+import com.magnus.edutech.model.User;
 import com.magnus.edutech.webservices.userservices.responseparser.UsersJsonParser;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by joshi on 6/19/2016.
  */
 public class UsersJsonParseImpl implements UsersJsonParser {
 
-    /* {"result":[{"subject_id":"1","name":"Ethics, Integrity and Aptitude"},
-    {"subject_id":"2","name":"Essay"},{"subject_id":"3","name":"History and Culture- Ancient India"}]}*/
+    private String message = null;
+    private User user = null;
+
     @Override
-    public List<Course> getListOfCourse(String response) {
-        JSONArray jsonArrayResults = getJsonObject(response);
-        List<Course> courseList = null;
-        if (jsonArrayResults != null) {
-            courseList = new ArrayList<Course>();
-            for (int i = 0; i < jsonArrayResults.length(); i++) {
-                try {
-                    JSONObject subjectInfo = jsonArrayResults.getJSONObject(i);
-                    Course course = new Course(subjectInfo.getString(GlobalConstants.SUBJECT_ID), subjectInfo.getString(GlobalConstants.NAME));
-                    course.setPurchased(false);
-                    courseList.add(course);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+    public User parseUserLoginResponse(String response) {
+        JSONObject jsonObject = getJsonObject(response);
+        user = null;
+        message = null;
+        try {
+            if (jsonObject != null) {
+                user = new User();
+                user.setFrom(GlobalConstants.LOGIN);
+                if (jsonObject.has(GlobalConstants.STATUS) && jsonObject.getInt(GlobalConstants.STATUS) == 1) {
+                    user.setClintId(jsonObject.getString(GlobalConstants.CLIENT_ID));
+                    user.setIs_query_execute(true);
+                } else {
+                    if (jsonObject.has(GlobalConstants.MESSAGE))
+                        message = jsonObject.getString(GlobalConstants.MESSAGE);
+                    user.setIs_query_execute(false);
+                    user.setMessage(message);
                 }
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
-        return courseList;
+        return user;
     }
 
     @Override
-    public List<Chapters> getListOfChapters(String response) {
-        JSONArray jsonArrayResults = getJsonObject(response);
-        List<Chapters> chaptersList = null;
-        if (jsonArrayResults != null) {
-            chaptersList = new ArrayList<Chapters>();
-            for (int i = 0; i < jsonArrayResults.length(); i++) {
-                try {
-                    JSONObject categoryInfo = jsonArrayResults.getJSONObject(i);
-                    Chapters chapters = new Chapters(categoryInfo.getString(GlobalConstants.CATEGORY_ID),
-                            categoryInfo.getString(GlobalConstants.SUBJECT_ID),
-                            categoryInfo.getString(GlobalConstants.NAME));
-                    chaptersList.add(chapters);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+    public User parseUserRegistrationResponse(String response) {
+        JSONObject jsonObject = getJsonObject(response);
+        user = null;
+        message = null;
+        try {
+            if (jsonObject != null) {
+                user = new User();
+                user.setFrom(GlobalConstants.REGISTRATION);
+                if (jsonObject.has(GlobalConstants.STATUS) && jsonObject.getInt(GlobalConstants.STATUS) == 1) {
+                    user.setIs_query_execute(true);
+                } else {
+                    if (jsonObject.has(GlobalConstants.MESSAGE))
+                        message = jsonObject.getString(GlobalConstants.MESSAGE);
+                    user.setIs_query_execute(false);
+                    user.setMessage(message);
                 }
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return chaptersList;
+        return user;
     }
 
     @Override
-    public List<Videos> getListOfVideos(String response) {
-        JSONArray jsonArrayResults = getJsonObject(response);
-        List<Videos> videosList = null;
-        if (jsonArrayResults != null) {
-            videosList = new ArrayList<Videos>();
-            for (int i = 0; i < jsonArrayResults.length(); i++) {
-                try {
-                    JSONObject videosInfo = jsonArrayResults.getJSONObject(i);
-                    Videos videos = new Videos(videosInfo.getString(GlobalConstants.VIDEOS_ID),
-                            videosInfo.getString(GlobalConstants.CATEGORY_ID),
-                            videosInfo.getString(GlobalConstants.SUBJECT_ID),
-                            videosInfo.getString(GlobalConstants.NAME),
-                            videosInfo.getString(GlobalConstants.URL));
-                    videos.setProduct_id("");
-                    if (i < 2) {
-                        videos.setPurchased(true);
-                    } else {
-                        videos.setPurchased(false);
-                    }
-                    videos.setDownloaded(false);
-                    videosList.add(videos);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+    public User parseForgetPasswordResponse(String response) {
+        JSONObject jsonObject = getJsonObject(response);
+        user = null;
+        message = null;
+        try {
+            if (jsonObject != null) {
+                user = new User();
+                user.setFrom(GlobalConstants.FORGET_PASSWORD);
+                if (jsonObject.has(GlobalConstants.STATUS) && jsonObject.getInt(GlobalConstants.STATUS) == 1) {
+                    user.setIs_query_execute(true);
+                } else {
+                    if (jsonObject.has(GlobalConstants.MESSAGE))
+                        message = jsonObject.getString(GlobalConstants.MESSAGE);
+                    user.setIs_query_execute(false);
+                    user.setMessage(message);
                 }
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
-        return videosList;
+        return user;
     }
 
     @Override
-    public JSONArray getJsonObject(String response) {
-        JSONArray jsonArrayResults = null;
+    public JSONObject getJsonObject(String response) {
+        JSONObject jsonObject = null;
         if (response != null) {
             String dataString = response.replace("&#039;", "\'");
             dataString = dataString.replace("&039;", "\'");
             try {
-                JSONObject jsonObject = new JSONObject(dataString.replace("&amp;", "&"));
-                jsonArrayResults = jsonObject.getJSONArray("result");
-
+                jsonObject = new JSONObject(dataString.replace("&amp;", "&"));
             } catch (JSONException e) {
                 Log.e("Parse JSON", e.getMessage());
                 e.printStackTrace();
             }
         }
-        return jsonArrayResults;
+        return jsonObject;
     }
 }
