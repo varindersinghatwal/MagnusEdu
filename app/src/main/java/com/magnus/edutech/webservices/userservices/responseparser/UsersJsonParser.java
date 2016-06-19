@@ -1,0 +1,28 @@
+package com.magnus.edutech.webservices.userservices.responseparser;
+
+import com.magnus.edutech.model.Chapters;
+import com.magnus.edutech.model.Course;
+import com.magnus.edutech.model.Videos;
+
+import org.json.JSONArray;
+
+import java.util.List;
+
+/**
+ * Created by joshi on 6/19/2016.
+ */
+public interface UsersJsonParser {
+
+    // parse subject list
+    List<Course> getListOfCourse(String response);
+
+    // parse  ChapterList
+    List<Chapters> getListOfChapters(String response);
+
+    // parse  ChapterList
+    List<Videos> getListOfVideos(String response);
+
+    // getJson Object
+
+    JSONArray getJsonObject(String response);
+}
